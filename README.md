@@ -1,1 +1,1 @@
-# React-Restauran-Project
+# React-Restaurant-Project
