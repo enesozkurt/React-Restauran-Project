@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
+import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap'
 
-class DishDetailComponent extends Component {
-    render() {
-        const dish = this.props.dish
+function DishDetailComponent(props)  {
+        const dish = props.dish
         if(dish === null || dish === undefined) return (<div></div>)
 
         return (
@@ -24,7 +23,7 @@ class DishDetailComponent extends Component {
                             return (
                                 <div key = {comment.id}>
                                     <p>{comment.comment}</p>
-                                    <p>{`-- ${comment.author} , ${comment.date}`}</p>
+                                    <p>{`-- ${comment.author} , ${new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day:'2-digit'}).format(new Date(Date.parse(comment.date)))}`}</p>
                                 </div>
                             )
                         })}
@@ -32,7 +31,6 @@ class DishDetailComponent extends Component {
                 </div>
             </div>
         )
-    }
 }
 
 export default DishDetailComponent;
